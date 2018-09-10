@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "97fd1469-6ff3-41c3-a10b-17d3a64464e4",
+		"name": "myCollection1",
+		"description": "# this is a description\n\n## Description Heading\ncontent",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Step 2: Obtain a request token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "consumer_key",
+							"value": "1234-abcd1234abcd1234abcd1234",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "pocketapp1234:authorizationFinished",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://getpocket.com/v3/oauth/request",
+					"protocol": "https",
+					"host": [
+						"getpocket",
+						"com"
+					],
+					"path": [
+						"v3",
+						"oauth",
+						"request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 5: Convert a request token into a Pocket access token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "consumer_key",
+							"value": "1234-abcd1234abcd1234abcd1234",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "dcba4321-dcba-4321-dcba-4321dc",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://getpocket.com/v3/oauth/authorize",
+					"protocol": "https",
+					"host": [
+						"getpocket",
+						"com"
+					],
+					"path": [
+						"v3",
+						"oauth",
+						"authorize"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieving a User's Pocket Data: simple detailType",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"consumer_key\":\"1234-abcd1234abcd1234abcd1234\",\n\"access_token\":\"5678defg-5678-defg-5678-defg56\",\n\"state\":\"all\",\n\"detailType\":\"complete\"}"
+				},
+				"url": {
+					"raw": "https://getpocket.com/v3/get",
+					"protocol": "https",
+					"host": [
+						"getpocket",
+						"com"
+					],
+					"path": [
+						"v3",
+						"get"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
