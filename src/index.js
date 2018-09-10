@@ -1,4 +1,4 @@
-const pocketApiResponse = require('./pocket-response.json');
+const pocketApiResponse = require('./pocket-response-demo.json');
 
 let result = 'URL,Title,Selection,Folder';
 let items = pocketApiResponse.list;
